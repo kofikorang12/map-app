@@ -1,13 +1,12 @@
 'use strict';
 
+// ES6 class
 class Workout {
   date = new Date();
   id = (Date.now() + '').slice(-10);
   clicks = 0;
 
   constructor(coords, distance, duration) {
-    // this.date = ...
-    // this.id = ...
     this.coords = coords; // [lat, lng]
     this.distance = distance; // in km
     this.duration = duration; // in min
@@ -27,6 +26,7 @@ class Workout {
   }
 }
 
+// creating a child class of workout
 class Running extends Workout {
   type = 'running';
 
@@ -61,10 +61,6 @@ class Cycling extends Workout {
     return this.speed;
   }
 }
-
-// const run1 = new Running([39, -12], 5.2, 24, 178);
-// const cycling1 = new Cycling([39, -12], 27, 95, 523);
-// console.log(run1, cycling1);
 
 ///////////////////////////////////////
 // APPLICATION ARCHITECTURE
@@ -135,8 +131,11 @@ class App {
 
   _hideForm() {
     // Empty inputs
-    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-      '';
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        '';
 
     form.style.display = 'none';
     form.classList.add('hidden');
@@ -295,9 +294,6 @@ class App {
         duration: 1,
       },
     });
-
-    // using the public interface
-    // workout.click();
   }
 
   _setLocalStorage() {
